@@ -3,7 +3,7 @@
 
 Rapid prototyping of API server from design to implementation.
 
-### Design APIs with Stoplight Studio https://stoplight.io
+#### Design APIs with Stoplight Studio https://stoplight.io
 1. Refer OpenAPI sepcs in apis/users.yaml
 2. API endpoints
     -  POST /users
@@ -17,11 +17,11 @@ Rapid prototyping of API server from design to implementation.
  
        go run github.com/deepmap/oapi-codegen/cmd/oapi-codegen --package=Users --generate types,gin -o users/users.gen.go apis/users.yaml
 
-### Server Implementation
+#### Server Implementation
 1. Add business logic in handler functions in users/users.go
 2. Create Gin router and register the handler in main.go
 
-### Run API server
+#### Run API server
 go run .
 
 
