@@ -20,9 +20,14 @@ paths:
           $ref: '#/components/responses/200-GetUser'
         '400':
           $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '500':
+          $ref: '#/components/responses/500'
       operationId: get-users-userId
       description: Retrieve the information of the user with the matching user ID.
       parameters: []
+      security: []
     patch:
       summary: Update User Information
       operationId: patch-users-userId
@@ -31,6 +36,10 @@ paths:
           $ref: '#/components/responses/200-PatchUser'
         '400':
           $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '500':
+          $ref: '#/components/responses/500'
       description: Update the information of an existing user.
       requestBody:
         content:
@@ -59,6 +68,8 @@ paths:
                   lastName: Baker
                   dateOfBirth: '1985-10-02'
         description: Patch user properties to update.
+      security: []
+      parameters: []
   /users:
     post:
       summary: Create New User
@@ -68,6 +79,10 @@ paths:
           $ref: '#/components/responses/201-CreateUser'
         '400':
           $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '500':
+          $ref: '#/components/responses/500'
       requestBody:
         content:
           application/json:
@@ -202,16 +217,9 @@ components:
       schema:
         type: string
       description: User Id
-    Authorization:
-      name: Authorization
-      in: header
-      required: false
-      schema:
-        type: string
-      description: Authorization token
   responses:
     '400':
-      description: Example response
+      description: Bad Request
       content:
         application/json:
           schema:
@@ -222,20 +230,32 @@ components:
                 statuCode: 400
                 error: Bad Request
                 message: Invalid request headers input
+    '401':
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
     201-CreateUser:
-      description: Example response
+      description: Create User
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/User'
     200-PatchUser:
-      description: Example response
+      description: Upate User
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/User'
     200-GetUser:
-      description: Example response
+      description: Get User
       content:
         application/json:
           schema:
@@ -251,11 +271,4 @@ components:
                 emailVerified: true
                 createDate: '2019-08-24'
   examples: {}
-  securitySchemes:
-    API Key - 1:
-      type: oauth2
-      flows:
-        clientCredentials:
-          tokenUrl: ''
-          refreshUrl: ''
-          scopes: {}
+  securitySchemes: {}

@@ -50,6 +50,12 @@ type N201CreateUser User
 // Error model
 type N400 Error
 
+// Error model
+type N401 Error
+
+// Error model
+type N500 Error
+
 // PostUserJSONBody defines parameters for PostUser.
 type PostUserJSONBody struct {
 	DateOfBirth openapi_types.Date  `json:"dateOfBirth"`
