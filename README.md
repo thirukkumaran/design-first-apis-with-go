@@ -12,14 +12,14 @@ Rapid prototyping of API server from design to implementation.
 
 #### Generate Gin Server boileplate from OpenAPI specs 
 
-1. Featurs of Gin web framework https://gin-gonic.com/docs/introduction/
-2. Use github.com/deepmap/oapi-codegen to generate boilerplate code
+1. Features of Gin web framework https://gin-gonic.com/docs/introduction/
+2. Use "github.com/deepmap/oapi-codegen" to generate boilerplate code
  
        go run github.com/deepmap/oapi-codegen/cmd/oapi-codegen --package=Users --generate types,gin -o users/users.gen.go apis/users.yaml
 
 ### Server Implementation
 1. Add business logic in handler functions in users/users.go
-2. Create Gin router and register handler in main.go
+2. Create Gin router and register the handler in main.go
 
 ### Run API server
 go run .
