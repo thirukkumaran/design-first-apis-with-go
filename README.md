@@ -27,6 +27,10 @@ Rapid prototyping of APIs from design to implementation.
 
         go run .
 
+#### 5. Test API endpoint
+
+        curl -v http://localhost:8080/users/1
+
 
 
 
